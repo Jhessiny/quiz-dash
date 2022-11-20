@@ -1,21 +1,21 @@
 export type QuizModel = {
   title: string
-  questions: Question[]
-  redirects: Redirect[]
+  questions: QuestionModel[]
+  redirects: RedirectModel[]
 }
 
-export type Question = {
+export type QuestionModel = {
   title: string
-  answers: Answer[]
+  answers: AnswerModel[]
 }
 
-export type Answer = {
+export type AnswerModel = {
   text: string
   tag: string
   score: number
 }
 
-export type Redirect = {
+export type RedirectModel = {
   totalScore: number
   url: string
 }
