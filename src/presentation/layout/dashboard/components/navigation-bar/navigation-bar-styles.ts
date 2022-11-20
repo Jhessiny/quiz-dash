@@ -7,8 +7,15 @@ export const useStyles = makeStyles()((theme) => ({
     color: theme.colors.white,
     paddingTop: '4rem',
   },
+  title: {
+    fontSize: '2rem',
+    padding: '1.5rem 3rem',
+  },
   item: {
     display: 'block',
     padding: '1.5rem 3rem',
+    fontWeight: 'bold',
+    fontSize: '1.2rem',
+    textTransform: 'uppercase',
   },
 }))

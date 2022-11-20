@@ -5,6 +5,7 @@ export const NavigationBar = () => {
   const { classes } = useStyles()
   return (
     <nav className={classes.nav}>
+      <h1 className={classes.title}>MyQuiz App</h1>
       <ul>
         <li>
           <Link className={classes.item} to='/contacts'>
@@ -21,6 +22,12 @@ export const NavigationBar = () => {
             Quizzes
           </Link>
         </li>
+        <li>
+          <Link className={classes.item} to='/new-quiz'>
+            New Quiz
+          </Link>
+        </li>
+        <li className={classes.item}>Logout</li>
       </ul>
     </nav>
   )
