@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { QuizModel } from '~/domain/models'
+import { Question } from './components'
 import { useStyles } from './quiz-styles'
 
 const Quiz = () => {
   const { classes } = useStyles()
+  const [currentQuestion, setCurrentQuestion] = useState(0)
   const data: QuizModel = {
     title: 'This is a quiz',
     questions: [
@@ -28,23 +30,21 @@ const Quiz = () => {
       { totalScore: 4, url: '/result-4' },
     ],
   }
+
+  const handleResponse = () => {
+    setCurrentQuestion((prev) => prev + 1)
+  }
+
+  const question = data.questions[currentQuestion]
   return (
     <div className={classes.root}>
       <div className={classes.paper}>
         <h2>{data.title}</h2>
-        {data.questions.map((question) => (
-          <React.Fragment key={question.title}>
-            <div>{question.title}</div>
-            <div>
-              {question.answers.map((answer) => (
-                <div key={answer.tag}>
-                  <input type='radio' value={answer.tag} name={question.title} />
-                  <span>{answer.text}</span>
-                </div>
-              ))}
-            </div>
-          </React.Fragment>
-        ))}
+        <Question
+          title={question.title}
+          answers={question.answers}
+          handleResponse={handleResponse}
+        />
       </div>
     </div>
   )
