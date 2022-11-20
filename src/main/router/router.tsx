@@ -1,11 +1,14 @@
 import { BrowserRouter, Navigate, RouteObject, useRoutes } from 'react-router-dom'
-import { appRoutes } from './config'
+import { LayoutConfig } from './layout-config'
+import { appRoutes } from './routes-config'
 
 const RouteElements = () => {
   const elements = useRoutes(
     appRoutes.map((route) => {
-      if (route.isPrivate) return PrivateRoute({ route })
-      return route
+      const Layout = LayoutConfig[route.layout].component
+      const WithLayout = { ...route, element: <Layout>{route.element}</Layout> }
+      if (route.isPrivate) return PrivateRoute({ route: WithLayout })
+      return WithLayout
     }),
   )
   return elements
