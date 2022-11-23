@@ -1,15 +1,12 @@
+import { alpha } from '~/styles/helpers'
 import { makeStyles } from '~/styles/theme'
 
 export const useStyles = makeStyles()((theme) => ({
   root: {
-    background: theme.colors.background,
+    background: alpha(theme.colors.primaryColor, '66'),
     minHeight: '100vh',
-  },
-  paper: {
-    background: theme.colors.white,
-    boxShadow: theme.boxShadow,
-    width: 'fit-content',
-    padding: '2rem 4rem',
-    margin: 'auto',
+    padding: '1rem',
+    color: theme.colors.text,
+    zIndex: 1,
   },
 }))
