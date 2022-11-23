@@ -1,25 +1,33 @@
 import { useState } from 'react'
 import { useGetQuizDataQuery } from '~/presentation/hooks/api-endpoints'
-import { Question } from '../'
+import { Question, FinalStep } from '../'
 import { useStyles } from './quiz-modal-styles'
 import clsx from 'clsx'
 import { Spinner } from '~/presentation/components'
+import { SavedAnswersModel } from '~/domain/models'
 
 const QuizModal = () => {
   const { classes } = useStyles()
   const { data, isLoading } = useGetQuizDataQuery({ quizId: '123' })
   const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [answers, setAnswers] = useState<SavedAnswersModel[]>([])
 
-  const handleResponse = () => {
-    setCurrentQuestion((prev) => prev + 1)
+  const handleResponse = (answer: SavedAnswersModel) => {
+    setTimeout(() => {
+      setCurrentQuestion((prev) => prev + 1)
+      setAnswers((prev) => [...prev, answer])
+    }, 300)
   }
 
-  const getQuestion = () => data?.questions[currentQuestion]
+  const question = data?.questions[currentQuestion]
+
+  const isFinalStep = data && currentQuestion >= data?.questions.length
 
   return (
     <div className={classes.paper}>
       {isLoading && <Spinner scale={0.6} />}
-      {data && (
+      {isFinalStep && <FinalStep />}
+      {data && !isFinalStep && (
         <>
           <h2>{data.title}</h2>
           <div className={classes.divider}>
@@ -30,11 +38,7 @@ const QuizModal = () => {
               ></div>
             ))}
           </div>
-          <Question
-            title={getQuestion()!.title}
-            answers={getQuestion()!.answers}
-            handleResponse={handleResponse}
-          />
+          <Question {...question!} handleResponse={handleResponse} />
         </>
       )}
     </div>
