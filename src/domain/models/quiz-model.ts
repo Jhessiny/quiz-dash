@@ -23,7 +23,7 @@ export type RedirectModel = {
   url: string
 }
 
-export type SavedAnswersModel = {
+export type SavedAnswerModel = {
   questionId: string
   score: number
   id: string

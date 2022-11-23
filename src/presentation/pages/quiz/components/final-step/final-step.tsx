@@ -4,48 +4,66 @@ import { TextField } from '~/presentation/components'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { contactFormSchema } from '~/presentation/validations'
 import { useStyles } from './final-step-style'
+import { useAddContactMutation } from '~/presentation/hooks/api-endpoints'
+import { ContactModel } from '~/domain/models'
+import { useAppSelector } from '~/store/store'
+import { useParams } from 'react-router-dom'
 
 export const FinalStep = () => {
   const { classes } = useStyles()
+  const [addContact, { isError, isSuccess }] = useAddContactMutation()
+  const { id } = useParams<{ id: string }>()
+  const { answers } = useAppSelector((state) => state.quiz)
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(contactFormSchema), mode: 'onBlur' })
+  } = useForm<ContactModel>({ resolver: yupResolver(contactFormSchema), mode: 'onBlur' })
 
-  const onSubmit = (values: unknown) => {
+  const onSubmit = async (values: ContactModel) => {
     console.log(values)
+    const payload = {
+      ...values,
+      answers,
+      quizId: id!,
+    }
+    await addContact(payload)
   }
 
   return (
     <div>
-      <h2 className={classes.title}>Contact info</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          placeholder='firstName'
-          {...register('firstName')}
-          helperText={errors.firstName?.message?.toString()}
-          focus={true}
-        />
-        <TextField
-          placeholder='lastName'
-          {...register('lastName')}
-          helperText={errors.lastName?.message?.toString()}
-        />
-        <TextField
-          placeholder='email'
-          {...register('email')}
-          helperText={errors.email?.message?.toString()}
-        />
-        <TextField
-          placeholder='phone'
-          {...register('phone')}
-          helperText={errors.phone?.message?.toString()}
-        />
-        <div className={classes.btnWrapper}>
-          <button className={classes.button}>send</button>
-        </div>
-      </form>
+      {isSuccess && <>success</>}
+      {!isSuccess && (
+        <>
+          <h2 className={classes.title}>Contact info</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <TextField
+              placeholder='firstName'
+              {...register('firstName')}
+              helperText={errors.firstName?.message?.toString()}
+              focus={true}
+            />
+            <TextField
+              placeholder='lastName'
+              {...register('lastName')}
+              helperText={errors.lastName?.message?.toString()}
+            />
+            <TextField
+              placeholder='email'
+              {...register('email')}
+              helperText={errors.email?.message?.toString()}
+            />
+            <TextField
+              placeholder='phone'
+              {...register('phone')}
+              helperText={errors.phone?.message?.toString()}
+            />
+            <div className={classes.btnWrapper}>
+              <button className={classes.button}>send</button>
+            </div>
+          </form>
+        </>
+      )}
     </div>
   )
 }
