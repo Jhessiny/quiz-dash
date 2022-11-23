@@ -1,5 +1,5 @@
 import { useStyles } from './quiz-styles'
-import QuizModal from './components/quiz-modal/quiz-modal'
+import { QuizModal } from './components'
 
 const Quiz = () => {
   const { classes } = useStyles()
