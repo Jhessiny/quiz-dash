@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import { Spinner } from '~/presentation/components'
 import { SavedAnswersModel } from '~/domain/models'
 
-const QuizModal = () => {
+export const QuizModal = () => {
   const { classes } = useStyles()
   const { data, isLoading } = useGetQuizDataQuery({ quizId: '123' })
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -44,5 +44,3 @@ const QuizModal = () => {
     </div>
   )
 }
-
-export default QuizModal

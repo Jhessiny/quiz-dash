@@ -11,7 +11,7 @@ export const useStyles = makeStyles()((theme) => ({
     borderRadius: '.5rem',
     zIndex: 2,
   },
-  title: { marginBottom: '.5rem' },
+  title: { marginBottom: '.5rem', textTransform: 'uppercase' },
   divider: {
     width: '100%',
     height: '.5rem',

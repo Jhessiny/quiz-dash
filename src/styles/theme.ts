@@ -8,6 +8,7 @@ function useTheme() {
       primaryColor: '#00CCD6',
       background: '#F0F7F4',
       text: '#212427',
+      error: '#FF5349',
     },
   }
 }
