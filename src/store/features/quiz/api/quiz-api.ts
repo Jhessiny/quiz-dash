@@ -1,4 +1,4 @@
-import { loadQuizDataService } from '~/application/services/get-quiz-data'
+import { loadQuizDataService } from '~/application/services/load-quiz-data'
 import { LoadQuizData } from '~/domain/services'
 import { api } from '~/store/api/api-slice'
 
