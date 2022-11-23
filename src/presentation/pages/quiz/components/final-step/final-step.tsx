@@ -8,10 +8,13 @@ import { useAddContactMutation } from '~/presentation/hooks/api-endpoints'
 import { ContactModel } from '~/domain/models'
 import { useAppSelector } from '~/store/store'
 import { useParams } from 'react-router-dom'
+import { useToastRequest } from '~/presentation/hooks/use-toast-request'
 
 export const FinalStep = () => {
   const { classes } = useStyles()
   const [addContact, { isError, isSuccess }] = useAddContactMutation()
+  useToastRequest({ isError })
+
   const { id } = useParams<{ id: string }>()
   const { answers } = useAppSelector((state) => state.quiz)
   const {
