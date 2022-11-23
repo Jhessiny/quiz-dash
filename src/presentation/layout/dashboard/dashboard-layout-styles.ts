@@ -1,4 +1,4 @@
-import { makeStyles } from '~/styles/theme'
+import { makeStyles } from '~/presentation/theme/theme'
 
 export const useStyles = makeStyles()((theme) => ({
   root: {

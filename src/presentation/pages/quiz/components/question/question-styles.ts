@@ -1,5 +1,5 @@
 import { alpha } from '~/styles/helpers'
-import { makeStyles } from '~/styles/theme'
+import { makeStyles } from '~/presentation/theme/theme'
 
 export const useStyles = makeStyles()((theme) => ({
   question: { marginTop: '3.5rem' },

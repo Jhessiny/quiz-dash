@@ -1,4 +1,4 @@
-import { makeStyles } from '~/styles/theme'
+import { makeStyles } from '~/presentation/theme/theme'
 
 export const useStyles = makeStyles<{ scale: string }>()((theme, { scale }) => ({
   spinnerWrapper: { width: '100%', display: 'flex', justifyContent: 'center', margin: '2rem 0' },
