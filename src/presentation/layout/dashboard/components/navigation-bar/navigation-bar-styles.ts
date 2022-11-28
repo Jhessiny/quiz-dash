@@ -12,10 +12,22 @@ export const useStyles = makeStyles()((theme) => ({
     padding: '1.5rem 3rem',
   },
   item: {
-    display: 'block',
+    display: 'flex',
+    alignItems: 'center',
     padding: '1.5rem 3rem',
     fontWeight: 'bold',
     fontSize: '1.2rem',
     textTransform: 'uppercase',
+    '&:hover': {
+      background: '#06bfc8',
+    },
+  },
+  active: {
+    background: '#06bfc8',
+  },
+  iconWrapper: {
+    fontSize: '2rem',
+    marginRight: '.5rem',
+    display: 'inline-flex',
   },
 }))
