@@ -4,6 +4,7 @@ export const useStyles = makeStyles()((theme) => ({
   nav: {
     background: theme.colors.primaryColor,
     minHeight: '100vh',
+    width: '21rem',
     color: theme.colors.white,
     paddingTop: '4rem',
   },
