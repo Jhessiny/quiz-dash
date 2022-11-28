@@ -9,6 +9,7 @@ import { ContactModel } from '~/domain/models'
 import { useAppSelector } from '~/store/store'
 import { useParams } from 'react-router-dom'
 import { useToastRequest } from '~/presentation/hooks/use-toast-request'
+import { SuccessMessage } from '../success-message/success-message'
 
 export const FinalStep = () => {
   const { classes } = useStyles()
@@ -20,7 +21,7 @@ export const FinalStep = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<ContactModel>({ resolver: yupResolver(contactFormSchema), mode: 'onBlur' })
 
   const onSubmit = async (values: ContactModel) => {
@@ -35,7 +36,7 @@ export const FinalStep = () => {
 
   return (
     <div>
-      {isSuccess && <>success</>}
+      {isSuccess && <SuccessMessage />}
       {!isSuccess && (
         <>
           <h2 className={classes.title}>Contact info</h2>
@@ -62,7 +63,9 @@ export const FinalStep = () => {
               helperText={errors.phone?.message?.toString()}
             />
             <div className={classes.btnWrapper}>
-              <button className={classes.button}>send</button>
+              <button disabled={!isValid} className={classes.button}>
+                send
+              </button>
             </div>
           </form>
         </>

@@ -5,7 +5,9 @@ export const useStyles = makeStyles()((theme) => ({
   paper: {
     background: theme.colors.white,
     boxShadow: theme.boxShadow,
-    maxWidth: '60rem',
+    maxWidth: '70rem',
+    width: 'max-content',
+    minWidth: '50rem',
     padding: '4rem',
     margin: '15rem auto',
     borderRadius: '.5rem',

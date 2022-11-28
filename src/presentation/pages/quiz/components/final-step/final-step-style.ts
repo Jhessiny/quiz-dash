@@ -9,6 +9,11 @@ export const useStyles = makeStyles()((theme) => ({
     color: theme.colors.white,
     padding: '1rem 4rem',
     marginTop: '2rem',
+    cursor: 'pointer',
+    '&:disabled': {
+      backgroundColor: alpha(theme.colors.text, '55'),
+      cursor: 'not-allowed',
+    },
   },
   title: { marginBottom: '3rem', textTransform: 'uppercase' },
   btnWrapper: {
