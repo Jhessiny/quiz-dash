@@ -4,7 +4,7 @@ import { alpha } from '~/styles/helpers'
 export const useStyles = makeStyles()((theme) => ({
   title: {
     fontSize: '3rem',
-    color: theme.colors.primaryColor,
+    color: theme.colors.text,
     padding: '2rem 0rem',
   },
   divider: {

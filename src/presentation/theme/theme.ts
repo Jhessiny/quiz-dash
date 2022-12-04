@@ -9,6 +9,7 @@ function useTheme() {
       background: '#F0F7F4',
       text: '#212427',
       error: '#FF5349',
+      success: '#32CD32',
     },
   }
 }
