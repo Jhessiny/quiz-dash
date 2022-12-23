@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

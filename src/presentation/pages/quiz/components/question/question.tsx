@@ -1,4 +1,3 @@
-import React from 'react'
 import { QuestionModel, SavedAnswerModel } from '~/domain/models'
 import { Answer } from '../answer/answer'
 import { useStyles } from './question-styles'
