@@ -1,10 +1,10 @@
-import { AnswerModel, SavedAnswersModel } from '~/domain/models'
+import { AnswerModel, SavedAnswerModel } from '~/domain/models'
 import { useStyles } from './answer-styles'
 
 type Props = AnswerModel & {
   name: string
   questionId: string
-  handleResponse: (answer: SavedAnswersModel) => void
+  handleResponse: (answer: SavedAnswerModel) => void
 }
 
 export const Answer = ({ tag, text, score, name, id, handleResponse, questionId }: Props) => {
