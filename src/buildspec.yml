@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+  pre_build:
+    commands:
+      - echo "Configuring .env"
+      - aws secretsmanager get-secret-value --secret-id ${SECRET_NAME} --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\"\(.value|tostring)\"")|.[]' > .env
+      - echo Installing dependencies...
+      - yarn install
+  build:
+    commands:
+      - echo Building...
+      - yarn build
+  post_build:
+    commands:
+      - echo "we are in the post build phase"
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: dist
