@@ -5,7 +5,7 @@ export const useStyles = makeStyles()((theme) => ({
     background: theme.colors.white,
     padding: '1.5rem',
     borderRadius: '0.5rem',
-    width: '40rem',
+    // width: '40rem',
     '& ul': {
       display: 'flex',
       gap: '.8rem',

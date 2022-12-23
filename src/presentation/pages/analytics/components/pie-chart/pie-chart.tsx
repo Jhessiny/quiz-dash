@@ -3,42 +3,37 @@ import { Card } from '~/presentation/components'
 
 const data = [
   {
-    id: 'rust',
-    label: 'rust',
+    id: 'retired',
+    label: 'retired',
     value: 542,
     color: 'hsl(6, 70%, 50%)',
   },
   {
-    id: 'c',
-    label: 'c',
+    id: 'credit card',
+    label: 'credit card',
     value: 443,
     color: 'hsl(192, 70%, 50%)',
   },
   {
-    id: 'elixir',
-    label: 'elixir',
+    id: 'bad credit',
+    label: 'bad credit',
     value: 233,
     color: 'hsl(257, 70%, 50%)',
   },
   {
-    id: 'make',
-    label: 'make',
+    id: 'income > 5k',
+    label: 'income > 5k',
     value: 387,
     color: 'hsl(53, 70%, 50%)',
   },
-  {
-    id: 'scala',
-    label: 'scala',
-    value: 593,
-    color: 'hsl(307, 70%, 50%)',
-  },
 ]
+
 export const PieChart = () => (
   <Card cardTitle='Tags overview'>
-    <div style={{ height: '250px', width: '400px' }}>
+    <div style={{ height: '250px', width: '300px' }}>
       <ResponsivePie
         data={data}
-        margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+        margin={{ top: 20, right: 15, bottom: 20, left: 15 }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}

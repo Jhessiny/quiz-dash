@@ -6,6 +6,7 @@ import { MdQuiz } from 'react-icons/md'
 
 const Contacts = lazy(async () => await import('~/presentation/pages/contacts/contacts'))
 const Analytics = lazy(async () => await import('~/presentation/pages/analytics/analytics'))
+const Quiz = lazy(async () => await import('~/presentation/pages/quiz/quiz'))
 
 export type IRoute = {
   path: string
@@ -67,7 +68,7 @@ export const appRoutes: IRoute[] = [
   },
   {
     path: '/:quizId',
-    element: lazy(async () => await import('~/presentation/pages/quiz/quiz')),
+    element: <Quiz />,
     isPrivate: false,
     layout: 'NoLayout',
   },

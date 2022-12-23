@@ -4,15 +4,17 @@ import { Question, FinalStep } from '../'
 import { useStyles } from './quiz-modal-styles'
 import clsx from 'clsx'
 import { Spinner } from '~/presentation/components'
-import { SavedAnswersModel } from '~/domain/models'
+import { SavedAnswerModel } from '~/domain/models'
+import { useParams } from 'react-router-dom'
 
 export const QuizModal = () => {
   const { classes } = useStyles()
-  const { data, isLoading } = useGetQuizDataQuery({ quizId: '123' })
+  const params = useParams<{ quizId: string }>()
+  const { data, isLoading } = useGetQuizDataQuery({ quizId: params.quizId! })
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState<SavedAnswersModel[]>([])
+  const [answers, setAnswers] = useState<SavedAnswerModel[]>([])
 
-  const handleResponse = (answer: SavedAnswersModel) => {
+  const handleResponse = (answer: SavedAnswerModel) => {
     setTimeout(() => {
       setCurrentQuestion((prev) => prev + 1)
       setAnswers((prev) => [...prev, answer])

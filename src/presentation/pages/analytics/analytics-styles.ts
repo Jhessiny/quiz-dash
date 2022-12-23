@@ -1,10 +1,14 @@
-import { makeStyles } from '~/presentation/theme/theme'
+import { makeStyles, mediaQuery } from '~/presentation/theme/theme'
 
 export const useStyles = makeStyles()((theme) => ({
   top: {
-    display: 'flex',
+    display: 'grid',
     justifyContent: 'space-between',
     gap: '1rem',
-    // flexWrap: 'wrap',
+    gridTemplateColumns: 'repeat(6, 1fr)',
+    '& div': {},
+    [mediaQuery.down(1500)]: {
+      gridTemplateColumns: '1fr 1fr',
+    },
   },
 }))

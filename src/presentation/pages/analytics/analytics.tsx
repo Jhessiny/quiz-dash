@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { Spinner } from '~/presentation/components'
+import { Card, Spinner } from '~/presentation/components'
 import { HeaderProps } from '~/presentation/layout/dashboard/components'
 import { useStyles } from './analytics-styles'
 import { PieChart } from './components'
@@ -17,6 +17,8 @@ const Analytics = (props: Props) => {
           <Overview />
           <LeadsFunnel />
           <PieChart />
+          <Card />
+          <Card />
         </div>
       </Suspense>
     </div>

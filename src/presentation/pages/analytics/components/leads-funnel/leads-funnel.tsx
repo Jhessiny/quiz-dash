@@ -27,7 +27,7 @@ const data = [
 const LeadsFunnel = () => {
   return (
     <Card cardTitle='Leads overview'>
-      <div style={{ height: '250px', width: '500px' }}>
+      <div style={{ height: '250px', width: '400px' }}>
         <ResponsiveFunnel
           data={data}
           valueFormat='>-.4s'
@@ -36,9 +36,7 @@ const LeadsFunnel = () => {
             modifiers: [['darker', 3]],
           }}
           beforeSeparatorLength={100}
-          beforeSeparatorOffset={20}
           afterSeparatorLength={100}
-          afterSeparatorOffset={20}
           shapeBlending={0}
           currentPartSizeExtension={10}
           motionConfig='wobbly'

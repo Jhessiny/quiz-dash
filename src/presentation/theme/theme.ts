@@ -15,3 +15,12 @@ function useTheme() {
 }
 
 export const { makeStyles, withStyles, useStyles } = createMakeAndWithStyles({ useTheme })
+
+export const mediaQuery = {
+  up(breakpoint: number) {
+    return `@media only screen and (min-width: ${breakpoint}px)`
+  },
+  down(breakpoint: number) {
+    return `@media only screen and (max-width: ${breakpoint}px)`
+  },
+}

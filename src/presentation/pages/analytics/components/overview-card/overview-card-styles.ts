@@ -9,7 +9,6 @@ export const useStyles = makeStyles<StyleProps>()((theme, { negativeVariation })
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '40rem',
     padding: '2rem 3rem',
     borderRadius: '0.5rem',
     background: theme.colors.white,
