@@ -1,16 +1,16 @@
-import { lazy, ReactElement, ReactNode } from 'react'
+import { ReactElement, ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 import { LayoutConfig } from './layout-config'
 import { RiContactsBook2Fill, RiLineChartFill, RiAddCircleFill } from 'react-icons/ri'
 import { MdQuiz } from 'react-icons/md'
 
-const Contacts = lazy(async () => await import('~/presentation/pages/contacts/contacts'))
-const Analytics = lazy(async () => await import('~/presentation/pages/analytics/analytics'))
-const Quiz = lazy(async () => await import('~/presentation/pages/quiz/quiz'))
+import Contacts from '~/presentation/pages/contacts/contacts'
+import Analytics from '~/presentation/pages/analytics/analytics'
+import Quiz from '~/presentation/pages/quiz/quiz'
 
 export type IRoute = {
   path: string
-  element: React.LazyExoticComponent<React.ComponentType<any>> | ReactElement
+  element: ReactElement
   isPrivate: boolean
   layout: keyof typeof LayoutConfig
   menuLink?: {
