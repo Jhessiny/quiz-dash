@@ -6,7 +6,10 @@ const RouteElements = () => {
   const elements = useRoutes(
     appRoutes.map((route) => {
       const Layout = LayoutConfig[route.layout].component
-      const WithLayout = { ...route, element: <Layout>{route.element}</Layout> }
+      const WithLayout = {
+        ...route,
+        element: <Layout>{route.element}</Layout>,
+      }
       if (route.isPrivate) return PrivateRoute({ route: WithLayout })
       return WithLayout
     }),

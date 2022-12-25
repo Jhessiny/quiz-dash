@@ -1,12 +1,12 @@
-import { ReactElement, ReactNode } from 'react'
+import { lazy, ReactElement, ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 import { LayoutConfig } from './layout-config'
 import { RiContactsBook2Fill, RiLineChartFill, RiAddCircleFill } from 'react-icons/ri'
 import { MdQuiz } from 'react-icons/md'
 
-import Contacts from '~/presentation/pages/contacts/contacts'
-import Analytics from '~/presentation/pages/analytics/analytics'
-import Quiz from '~/presentation/pages/quiz/quiz'
+const Quiz = lazy(async () => await import('~/presentation/pages/quiz/quiz'))
+const Contacts = lazy(async () => await import('~/presentation/pages/contacts/contacts'))
+const Analytics = lazy(async () => await import('~/presentation/pages/analytics/analytics'))
 
 export type IRoute = {
   path: string

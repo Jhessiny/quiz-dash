@@ -1,4 +1,5 @@
-import { ReactElement } from 'react'
+import { ReactElement, Suspense } from 'react'
+import { Spinner } from '~/presentation/components'
 import { Header, NavigationBar } from './components'
 import { useStyles } from './dashboard-layout-styles'
 
@@ -14,7 +15,9 @@ export const DashboardLayout = ({ children }: Props) => {
       <NavigationBar />
       <div className={classes.headerContentWrapper}>
         {pageTitle && <Header title={pageTitle} />}
-        <div className={classes.content}>{children}</div>
+        <div className={classes.content}>
+          <Suspense fallback={<Spinner />}>{children}</Suspense>
+        </div>
       </div>
     </div>
   )
