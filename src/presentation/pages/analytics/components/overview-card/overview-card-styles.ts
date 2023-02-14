@@ -13,7 +13,6 @@ export const useStyles = makeStyles<StyleProps>()((theme, { negativeVariation })
     borderRadius: '0.5rem',
     background: theme.colors.white,
     boxShadow: theme.boxShadow,
-    marginBottom: '1.5rem',
   },
   iconWrapper: {
     fontSize: '3.5rem',

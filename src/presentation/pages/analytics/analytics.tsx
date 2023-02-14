@@ -15,11 +15,15 @@ const Analytics = (props: Props) => {
       <Suspense fallback={<Spinner />}>
         <div className={classes.top}>
           <Overview />
-          <LeadsFunnel />
-          <PieChart />
-          <Card />
-          <Card />
+          <div className={classes.topChart}>
+            <LeadsFunnel />
+          </div>
+          <div className={classes.topChart}>
+            <PieChart />
+          </div>
         </div>
+        <Card />
+        <Card />
       </Suspense>
     </div>
   )

@@ -7,7 +7,7 @@ import { Card } from '~/presentation/components'
 export const Overview = () => {
   const { classes } = useStyles()
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <OverviewCard
         icon={<FaUsers />}
         label='contacts'

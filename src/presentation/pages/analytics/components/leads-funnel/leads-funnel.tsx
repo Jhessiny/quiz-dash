@@ -1,5 +1,6 @@
 import { ResponsiveFunnel } from '@nivo/funnel'
 import { Card } from '~/presentation/components'
+import { useStyles } from './leads-funnel-styles'
 
 const data = [
   {
@@ -25,9 +26,10 @@ const data = [
 ]
 
 const LeadsFunnel = () => {
+  const { classes } = useStyles()
   return (
-    <Card cardTitle='Leads overview'>
-      <div style={{ height: '250px', width: '400px' }}>
+    <Card cardTitle='Leads overview' className={classes.card}>
+      <div style={{ height: '238px' }}>
         <ResponsiveFunnel
           data={data}
           valueFormat='>-.4s'
@@ -35,8 +37,8 @@ const LeadsFunnel = () => {
             from: 'color',
             modifiers: [['darker', 3]],
           }}
-          beforeSeparatorLength={100}
-          afterSeparatorLength={100}
+          beforeSeparatorLength={70}
+          afterSeparatorLength={70}
           shapeBlending={0}
           currentPartSizeExtension={10}
           motionConfig='wobbly'
